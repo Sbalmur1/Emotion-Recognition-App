@@ -1,4 +1,3 @@
-pip install tensorflow
 from tensorflow.keras.models import load_model
 import librosa
 import numpy as np
@@ -7,6 +6,7 @@ import warnings
 warnings.filterwarnings("ignore")
 import requests
 import streamlit as st
+from tensorflow.keras.models import load_model
 
 github_raw_url = 'https://github.com/Sbalmur1/Emotion-Recognition-App/raw/main/CNN_model.h5'  # Updated raw URL
 local_filename = 'CNN_model.h5'
