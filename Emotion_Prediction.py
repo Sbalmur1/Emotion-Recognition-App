@@ -87,17 +87,21 @@ def main():
     # giving a title
     st.title('Emotion Prediction Web App')
 
-    # File upload widget
-    uploaded_file = st.file_uploader("Upload an audio file", type=["wav"])
-    
+   # File upload widget
+    uploaded_file= st.file_uploader("Upload an audio file", type=["wav"])
+  
     predicted_emotion = ''
     
     if uploaded_file is not None:
         st.audio(uploaded_file, format = "audio/wav")
 
     if st.button("Predict Emotion"):
-        # Make emotion prediction
-        predicted_emotion = predict_emotion(uploaded_file)
+        # Check if file is uploaded successfully
+        if uploaded_file is None:
+            predicted_emotion = 'No file uploaded. Please upload a file.'
+        else:
+            # Make emotion prediction
+            predicted_emotion = predict_emotion(uploaded_file)
     
     st.success(f"Predicted Emotion: {predicted_emotion}")
 
