@@ -20,7 +20,7 @@ else:
     print("Failed to fetch file from GitHub")
 
 # load model
-model = tensorflow.keras.models.load_model(local_filename)
+model = load_model(local_filename)
 
 # summarize model.
 model.summary()
