@@ -4,12 +4,24 @@ import numpy as np
 import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
-
+import requests
 import streamlit as st
 
+github_raw_url = 'https://github.com/Sbalmur1/Emotion-Recognition-App/raw/main/CNN_model.h5'  # Updated raw URL
+local_filename = 'CNN_model.h5'
+
+response = requests.get(github_raw_url)
+
+if response.status_code == 200:
+    with open(local_filename, 'wb') as f:
+        f.write(response.content)
+    print('File downloaded successfully')
+else:
+    print("Failed to fetch file from GitHub")
 
 # load model
-model = load_model(r'C:\Users\manid\Desktop\DS\sem-4\May-5\API\Saved models\keras\CNN_model.h5')
+model = load_model(local_filename)
+
 # summarize model.
 model.summary()
 
