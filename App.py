@@ -3,7 +3,7 @@
 # import pandas as pd
 # import warnings
 # warnings.filterwarnings("ignore")
-# import requests
+import requests
 # import streamlit as st
 # from tensorflow.keras.models import load_model
 
